@@ -1,0 +1,327 @@
+@import url(//db.onlinewebfonts.com/c/88f10bf18a36407ef36bf30bc25a3618?family=Suisse+Intl);
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot");
+  src: url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot?#iefix")
+       format("embedded-opentype"),
+       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff2")
+       format("woff2"),
+       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff")
+       format("woff"),
+       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.ttf")
+       format("truetype"),
+       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.svg#Suisse Intl")
+       format("svg");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  min-height: 100vh;
+  width: 100vw;
+  color: #000;
+  background-color: #e7ebee;
+  font-family: "Suisse Intl", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+}
+
+.banner-box {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  border-radius: 0 0 10px 10px;
+  height: 60%;
+  width: 100%;
+  background-color: #006df1;
+  background-image: url("../img/bunnerBack2.jpg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slogan {
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-left: 5%;
+  font-size: 64px;
+  line-height: 64px;
+  color: #ffffff;
+  /*font-family: "Suisse Intl", serif;*/
+}
+
+.invest-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 250px;
+  height: 64px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 800;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  text-transform: uppercase;
+  /*box-shadow: 0 0 0 0 rgba(0,109,241,0), 0 0 0 0 rgba(0,109,241,0);*/
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease-in-out;
+  /*transition: box-shadow .3s ease,background .3s ease,color .3s ease,border-color .3s ease;*/
+}
+
+.invest-button:hover {
+/*  box-shadow: 0 0 0 0 rgba(0,109,241,0), 0 0 0 0 rgba(0,109,241,0);*/
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
+
+.card h1 {
+  text-align: center;
+}
+
+.card .additional {
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(#dE685E, #EE786E);
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.card.green .additional {
+  background: linear-gradient(#92bCa6, #A2CCB6);
+}
+
+
+.card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}
+
+.card .additional .user-card {
+  width: 200px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.card .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.level {
+  background-image: url("../img/cocoCola.jpg");
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 80px;
+  height: 80px;
+  top: 20%;
+}
+
+.card .additional .user-card .points {
+  /*top: 15%;*/
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  background: rgba(0,0,0,0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  top: 85%;
+  cursor: pointer;
+  transition: background-color .3s;
+  height: 40px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .additional .user-card .points:hover {
+  background-color: #006df1;
+}
+
+
+.card .additional .user-card svg {
+  top: 50%;
+}
+
+.card .additional .more-info {
+  width: 300px;
+  float: left;
+  position: absolute;
+  left: 200px;
+  height: 100%;
+}
+
+.card .additional .more-info h1 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card.green .additional .more-info h1 {
+  color: #224C36;
+}
+
+.card .additional .coords {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.card.green .additional .coords {
+  color: #325C46;
+}
+
+.card .additional .coords span + span {
+  float: right;
+}
+
+.card .additional .stats {
+  font-size: 2rem;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  top: auto;
+  color: #fff;
+}
+
+.card.green .additional .stats {
+  color: #325C46;
+}
+
+.card .additional .stats > div {
+  flex: 1;
+  text-align: center;
+}
+
+.card .additional .stats i {
+  display: block;
+}
+
+.card .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.card .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.card .general {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.percent {
+  display: flex;
+  /*margin-top: 30px;*/
+  flex-direction: column;
+  justify-content: center;
+}
+
+.percent-num {
+  /*margin-top: 20px;*/
+  margin-bottom: 0;
+  color: #ffffff;
+  font-size: 40px;
+  /*line-height: 64px;*/
+  font-weight: 600;
+}
+
+.percent-text {
+  margin-top: 5px;
+  /*margin-bottom: 60px;*/
+  text-align: center;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.graphic {
+  /*margin: 5%;*/
+  height: 280px;
+  width: 280px;
+  background-image: url("../img/graphic.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background-color: black;*/
+}
