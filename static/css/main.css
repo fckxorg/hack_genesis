@@ -1,6 +1,6 @@
 body {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   flex-wrap: nowrap;
 
@@ -19,13 +19,14 @@ body {
 }
 
 .banner-box {
+  /*top: 0;*/
   margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1700px;
 }
 
 .banner {
@@ -34,10 +35,10 @@ body {
   justify-content: flex-start;
 
   border-radius: 0 0 10px 10px;
-  height: 60%;
+  height: 100%;
   width: 100%;
   background-color: #006df1;
-  background-image: url("../img/bunnerBack2.jpg");
+  background-image: url("../img/bun2.png");
   background-origin: border-box;
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,7 +47,7 @@ body {
 .slogan {
   margin-bottom: auto;
   margin-top: auto;
-  margin-left: 5%;
+  margin-left: 50px;
   font-size: 64px;
   line-height: 64px;
   color: #ffffff;
@@ -67,8 +68,8 @@ body {
   font-size: 16px;
   line-height: 16px;
   font-weight: 800;
-  margin-left: 5%;
-  margin-bottom: 5%;
+  margin-left: 50px;
+  margin-bottom: 15%;
   text-transform: uppercase;
   /*box-shadow: 0 0 0 0 rgba(0,109,241,0), 0 0 0 0 rgba(0,109,241,0);*/
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
@@ -82,9 +83,14 @@ body {
 }
 
 .cards-container {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
+  width: 1600px;
+  border-radius: 10px;
 }
 
 
@@ -118,16 +124,20 @@ body {
   position: absolute;
   width: 200px;
   height: 100%;
-  background: linear-gradient(#dE685E, #EE786E);
+  background: #dE685E;
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
 }
 
 .card.green .additional {
-  background: linear-gradient(#92bCa6, #A2CCB6);
+  background: #92bCa6;
 }
 
+.card.blue .additional {
+  background: #8B95C9;
+}
+/*006DAA*/
 
 .card:hover .additional {
   width: 100%;
@@ -207,18 +217,10 @@ body {
   font-weight: 550;
 }
 
-.card.green .additional .more-info h1 {
-  color: #224C36;
-}
-
 .card .additional .coords {
   margin: 0 1rem;
   color: #fff;
   font-size: 1rem;
-}
-
-.card.green .additional .coords {
-  color: #325C46;
 }
 
 .card .additional .coords span + span {
@@ -251,20 +253,15 @@ body {
   justify-content: space-between;
 }
 
-.card.green .additional .stats {
-  color: #325C46;
-}
-
 .card .additional .stats > div {
   flex: 1;
   text-align: center;
 }
 
-.card .additional .stats i {
+.card .additional .stats .stats-icon {
   display: block;
   font-size: 50px;
   margin-right: 20px  ;
-  /*height: 60px;*/
 }
 
 .card .additional .stats div.title {
@@ -323,4 +320,34 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 1600px;
+  border-radius: 10px;
+  margin-top: -150px;
+}
+
+.sol-for-you {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100px;
+  width: 1550px;
+  font-size: 50px;
+  font-weight: 400;
+  font-family: 'Roboto Condensed', sans-serif;;
+  color: #888888;
+  /*padding-top: ;*/
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
