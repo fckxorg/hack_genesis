@@ -11,7 +11,7 @@ from typing import Tuple, List
 YOUNG = 0
 EASY_MONEY = 1
 MIDDLE_AGED = 2
-RETIRED = 3
+ELDER = 3
 
 # Interests -- whatever
 
@@ -36,9 +36,9 @@ INC_130 = 3
 
 
 class UserData:
-    def __init__(self, age: int, interests: List[str], source: bool, family: bool, education: int, income: int):
+    def __init__(self, age: int, interest: str, source: bool, family: bool, education: int, income: int):
         self.age = age
-        self.interests = interests
+        self.interest = interest
         self.source = source
         self.family = family
         self.education = education
@@ -46,11 +46,21 @@ class UserData:
 
 
 class IntermediateRepresentation:
-    def __init__(self, risk_level: int, assets: Tuple[int, int], income: int, investment_term: int, account_type: int, source: bool, interests: List[str]):
+    def __init__(self, age: int, education: int, risk_level: int, assets: Tuple[int, int], income: int, investment_term: int, account_type: int, source: bool, interest: str):
+        self.age = age
+        self.education = education
         self.risk_level = risk_level
         self.assets = assets
         self.income = income
         self.investment_term = investment_term
         self.account_type = account_type
         self.source = source
-        self.interests = interests
+        self.interest = interest
+
+
+class PageSettings:
+    def __init__(self, motivation: str, investment_descriptions: Tuple[str, str], slogan: str, trading_type: str):
+        self.motivation = motivation
+        self.investment_descriptions = investment_descriptions
+        self.slogan = slogan
+        self.trading_type = trading_type

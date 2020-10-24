@@ -22,7 +22,7 @@ INVEST = 1
 
 
 def deduce_risk_level(user: UserData) -> int:
-    if user.age == ut.RETIRED:
+    if user.age == ut.ELDER:
         return LOW_RISK
     elif user.age == ut.EASY_MONEY:
         return HIGH_RISK
@@ -48,7 +48,7 @@ def deduce_investment_term(user: UserData) -> int:
 
 
 def deduce_assets(user: UserData) -> Tuple[int, int]:
-    if user.age == ut.RETIRED or user.age == ut.MIDDLE_AGED:
+    if user.age == ut.ELDER or user.age == ut.MIDDLE_AGED:
         return (BONDS, STRUCTURED)
     elif user.age == ut.EASY_MONEY:
         return (SHARES, BONDS)
