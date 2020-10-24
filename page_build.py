@@ -2,6 +2,7 @@ from typing import Tuple
 import typing
 import user_types as ut
 import feature_deduction as fd
+import glob
 from user_types import IntermediateRepresentation
 
 
@@ -51,6 +52,17 @@ def get_investment_description_path(asset_type: int, education: int):
         return path + "shares.txt"
     else:
         return path + "structural_products.txt"
+
+def product_category_to_name(product_class: int) -> str:
+    if product_class == fd.SHARES:
+        return "shares"
+    elif product_class == fd.STRUCTURED:
+        return "structural_packages"
+    elif product_class == fd.BONDS:
+        return "obligations"
+
+def get_product_list(product_class: int) -> [str]:
+    if()
 
 
 def get_investment_descriptions(user: IntermediateRepresentation) -> Tuple[str, str]:
