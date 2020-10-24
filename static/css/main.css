@@ -1,20 +1,3 @@
-@import url(//db.onlinewebfonts.com/c/88f10bf18a36407ef36bf30bc25a3618?family=Suisse+Intl);
-
-@font-face {
-  font-family: "Suisse Intl";
-  src: url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot");
-  src: url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot?#iefix")
-       format("embedded-opentype"),
-       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff2")
-       format("woff2"),
-       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff")
-       format("woff"),
-       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.ttf")
-       format("truetype"),
-       url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.svg#Suisse Intl")
-       format("svg");
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -25,7 +8,7 @@ body {
   width: 100vw;
   color: #000;
   background-color: #e7ebee;
-  font-family: "Suisse Intl", Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
@@ -67,7 +50,7 @@ body {
   font-size: 64px;
   line-height: 64px;
   color: #ffffff;
-  /*font-family: "Suisse Intl", serif;*/
+  /*font-family: 'Raleway', serif;*/
 }
 
 .invest-button {
@@ -117,8 +100,7 @@ body {
 .card {
   width: 500px;
   height: 300px;
-  background-color: #fff;
-  background: linear-gradient(#f8f8f8, #fff);
+  background-color: #f8f8f8;
   box-shadow: 0 8px 16px rgba(0,0,0,0.6);
   border-radius: 10px;
   overflow: hidden;
@@ -128,6 +110,8 @@ body {
 
 .card h1 {
   text-align: center;
+  font-weight: 550;
+  color: #888888;
 }
 
 .card .additional {
@@ -200,7 +184,8 @@ body {
 }
 
 .card .additional .user-card .points:hover {
-  background-color: #006df1;
+  background-color: #ffffff;/*#006df1;*/
+  color: #000000;
 }
 
 
@@ -219,6 +204,7 @@ body {
 .card .additional .more-info h1 {
   color: #fff;
   margin-bottom: 0;
+  font-weight: 550;
 }
 
 .card.green .additional .more-info h1 {
@@ -243,11 +229,26 @@ body {
   font-size: 2rem;
   display: flex;
   position: absolute;
-  bottom: 1rem;
+  flex-direction: row;
+  justify-content: center;
   left: 1rem;
   right: 1rem;
-  top: auto;
+  margin-top: 40px;
   color: #fff;
+  height: 150px;
+}
+
+.stats-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stats-block {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card.green .additional .stats {
@@ -261,6 +262,9 @@ body {
 
 .card .additional .stats i {
   display: block;
+  font-size: 50px;
+  margin-right: 20px  ;
+  /*height: 60px;*/
 }
 
 .card .additional .stats div.title {
@@ -275,10 +279,6 @@ body {
   line-height: 1.5rem;
 }
 
-.card .additional .stats div.value.infinity {
-  font-size: 2.5rem;
-}
-
 .card .general {
   width: 300px;
   height: 100%;
@@ -289,6 +289,7 @@ body {
   box-sizing: border-box;
   padding: 1rem;
   padding-top: 0;
+  /*background-color: #ffffff;*/
 }
 
 .percent {
@@ -312,16 +313,14 @@ body {
   /*margin-bottom: 60px;*/
   text-align: center;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .graphic {
-  /*margin: 5%;*/
-  height: 280px;
-  width: 280px;
+  height: 223px;
+  width: 270px;
   background-image: url("../img/graphic.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /*background-color: black;*/
 }
