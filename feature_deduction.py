@@ -11,4 +11,4 @@ def deduce_investment_term(user: UserData) -> int:
     return 0
 
 def deduce_assets(user: UserData) -> Tuple[int, int]: 
-    return (0, 0)
+    return (0, 1)
