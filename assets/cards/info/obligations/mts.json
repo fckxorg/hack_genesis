@@ -3,5 +3,7 @@
     "profit_prediction" : "10",
     "investments_sum" : "45000",
     "term" : "18",
-    "type" : "Облигации"
+    "type" : "Облигации",
+    "logo" : "../../assets/cards/logos/obligations/mts.png",
+    "plot" : "../../assets/cards/plots/obligations/mts.png"
 }
