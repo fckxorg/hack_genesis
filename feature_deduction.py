@@ -62,4 +62,12 @@ def deduce_assets(user: UserData) -> Tuple[int, int]:
 
 
 def deduce_account_type(user: UserData) -> int:
-    pass
+    if user.age == ut.YOUNG:
+        if user.income == ut.INC_70_130 or user.income == ut.INC_130:
+            return INVEST
+        else:
+            return BROKERAGE
+    elif user.age == ut.EASY_MONEY:
+        return BROKERAGE
+    else:
+        return INVEST
