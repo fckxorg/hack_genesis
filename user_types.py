@@ -1,13 +1,13 @@
 from typing import Tuple, List
 
-# Correct values 
+# Correct values
 # Age -- 0 (young), 1 (middle) or 2 (retired)
 # Interest -- Whatever
 # Source -- whatever
 # Education -- whatever
 # Income -- whatever
 
-# Age 
+# Age
 YOUNG = 0
 EASY_MONEY = 1
 MIDDLE_AGED = 2
@@ -44,13 +44,13 @@ class UserData:
         self.education = education
         self.income = income
 
+
 class IntermediateRepresentation:
-    def __init__(self, risk_level: int, assets: List[str], investment_range: int, investment_term: int, source: bool, interests: Tuple[int, int]):
+    def __init__(self, risk_level: int, assets: List[str], income: int, investment_term: int, account_type: int, source: bool, interests: Tuple[int, int]):
         self.risk_level = risk_level
         self.assets = assets
-        self.investment_range = investment_range
+        self.income = income
         self.investment_term = investment_term
+        self.account_type = account_type
         self.source = source
         self.interests = interests
-
-        pass

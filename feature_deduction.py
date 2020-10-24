@@ -16,6 +16,10 @@ SHORT = 0
 MEDIUM = 1
 LONG = 2
 
+# Account type
+BROKERAGE = 0
+INVEST = 1
+
 
 def deduce_risk_level(user: UserData) -> int:
     if user.age == ut.RETIRED:
@@ -27,10 +31,6 @@ def deduce_risk_level(user: UserData) -> int:
             return LOW_RISK
         else:
             return HIGH_RISK
-
-
-def deduce_investment_range(user: UserData) -> int:
-    return 0
 
 
 def deduce_investment_term(user: UserData) -> int:
@@ -48,4 +48,18 @@ def deduce_investment_term(user: UserData) -> int:
 
 
 def deduce_assets(user: UserData) -> Tuple[int, int]:
-    return (0, 1)
+    if user.age == ut.RETIRED or user.age == ut.MIDDLE_AGED:
+        return (BONDS, STRUCTURED)
+    elif user.age == ut.EASY_MONEY:
+        return (SHARES, BONDS)
+    else:  # user.age == ut.YOUNG
+        if user.income == ut.INC_130:
+            return (BONDS, STRUCTURED)
+        elif user.income == ut.INC_70_130:
+            return (BONDS, SHARES)
+        else:
+            return (SHARES, BONDS)
+
+
+def deduce_account_type(user: UserData) -> int:
+    pass
