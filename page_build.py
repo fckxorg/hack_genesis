@@ -2,11 +2,11 @@ from typing import Tuple
 import typing
 import user_types as ut
 import feature_deduction as fd
+import glob
 from user_types import IntermediateRepresentation
 
 
-@typing.overload
-def load_asset(path: str) -> str:
+def load_asset_by_path(path: str) -> str:
     try:
         with open(path, "r") as f:
             return f.read()
@@ -20,9 +20,11 @@ def load_asset(path: str) -> str:
     return str()
 
 
-@typing.overload
-def load_asset(paths: Tuple[str, str]) -> Tuple[str, str]:
-    return (load_asset(paths[0]), load_asset(paths[1]))
+def load_asset(path):
+    if type(path) is str:
+        return load_asset_by_path(path)
+    elif type(path) is tuple:
+        return tuple(map(load_asset_by_path, path))
 
 
 def get_age_dependent_path(user: IntermediateRepresentation, folder: str) -> str:
@@ -36,10 +38,10 @@ def get_age_dependent_path(user: IntermediateRepresentation, folder: str) -> str
         return "assets/" + folder + "/elder.txt"
 
 
-def get_investment_description_path(asset_type: int, knowledge: int):
-    path = "assets/investment_descriptions/"
+def get_investment_description_path(asset_type: int, education: int):
+    path = "assets/investments_descriptions/"
 
-    if knowledge == ut.HIGH:
+    if education == ut.HIGH:
         path += "good_education_"
     else:
         path += "poor_education_"
@@ -51,9 +53,20 @@ def get_investment_description_path(asset_type: int, knowledge: int):
     else:
         return path + "structural_products.txt"
 
+def product_category_to_name(product_class: int) -> str:
+    if product_class == fd.SHARES:
+        return "shares"
+    elif product_class == fd.STRUCTURED:
+        return "structural_packages"
+    elif product_class == fd.BONDS:
+        return "obligations"
+
+def get_product_list(product_class: int) -> [str]:
+    if()
+
 
 def get_investment_descriptions(user: IntermediateRepresentation) -> Tuple[str, str]:
-    return (get_investment_description_path(user.assets[0], user.knowledge), get_investment_description_path(user.assets[1], user.knowledge))
+    return (get_investment_description_path(user.assets[0], user.education), get_investment_description_path(user.assets[1], user.education))
 
 
 def get_motivation(user: IntermediateRepresentation) -> str:
@@ -61,7 +74,7 @@ def get_motivation(user: IntermediateRepresentation) -> str:
 
 
 def get_slogan(user: IntermediateRepresentation) -> str:
-    return get_age_dependent_path(user, "slogan")
+    return get_age_dependent_path(user, "slogans")
 
 
 def get_trading_type(user: IntermediateRepresentation) -> str:
