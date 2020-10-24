@@ -46,7 +46,7 @@ class UserData:
 
 
 class IntermediateRepresentation:
-    def __init__(self, risk_level: int, assets: List[str], income: int, investment_term: int, account_type: int, source: bool, interests: Tuple[int, int]):
+    def __init__(self, risk_level: int, assets: Tuple[int, int], income: int, investment_term: int, account_type: int, source: bool, interests: List[str]):
         self.risk_level = risk_level
         self.assets = assets
         self.income = income
