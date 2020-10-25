@@ -370,6 +370,10 @@ body {
   justify-content: flex-start;
 }
 
+.about-block-text-head {
+  line-height: 25px;
+}
+
 p {
   font-size: 22px;
   font-weight: 500;
