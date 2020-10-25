@@ -1,7 +1,7 @@
-import feature_deduction as fd
-from user_types import UserData, IntermediateRepresentation, PageSettings
+from . import feature_deduction as fd
+from src.user_types import UserData, IntermediateRepresentation, PageSettings
 from json import dumps
-import page_build as pb
+import src.page_build as pb
 
 
 def get_intermediate_representation(user: UserData) -> IntermediateRepresentation:

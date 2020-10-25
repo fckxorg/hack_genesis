@@ -1,10 +1,10 @@
 from typing import Tuple
 import typing
-import user_types as ut
-import feature_deduction as fd
+import src.user_types as ut
+import src.feature_deduction as fd
 import glob
 import random
-from user_types import IntermediateRepresentation
+from src.user_types import IntermediateRepresentation
 from json import loads
 
 
