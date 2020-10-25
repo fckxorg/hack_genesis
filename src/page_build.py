@@ -5,6 +5,7 @@ import feature_deduction as fd
 import glob
 import random
 from user_types import IntermediateRepresentation
+from json import loads
 
 
 def load_asset_by_path(path: str) -> str:
@@ -26,21 +27,26 @@ def load_asset(path):
         return load_asset_by_path(path)
     elif type(path) is tuple:
         return tuple(map(load_asset_by_path, path))
+    else:  # Workaround because my architecture is falling apart, lol
+        return path
 
 
-def get_age_dependent_path(user: IntermediateRepresentation, folder: str) -> str:
+def get_age_dependent_path(user: IntermediateRepresentation, folder: str, extension: str) -> str:
+    path = "../assets/" + folder
     if user.age == ut.YOUNG:
-        return "assets/" + folder + "/young.txt"
+        path += "/young"
     elif user.age == ut.EASY_MONEY:
-        return "assets/" + folder + "/easy_money_seekers.txt"
+        path += "/easy_money_seekers"
     elif user.age == ut.MIDDLE_AGED:
-        return "assets/" + folder + "/middle-aged.txt"
+        path += "/middle-aged"
     elif user.age == ut.ELDER:
-        return "assets/" + folder + "/elder.txt"
+        path += "/elder"
+
+    return path + extension
 
 
 def get_investment_description_path(asset_type: int, education: int):
-    path = "assets/investments_descriptions/"
+    path = "../assets/investments_descriptions/"
 
     if education == ut.HIGH:
         path += "good_education_"
@@ -59,19 +65,21 @@ def product_category_to_name(product_class: int) -> str:
         return "obligations"
 
 
-def get_product_from_category(user: IntermediateRepresentation, category: int) -> str:
-    products = glob.glob("assets/cards/info/" +
+def get_product_from_category(user: IntermediateRepresentation, category: int) -> dict:
+    products = glob.glob("../assets/cards/info/" +
                          product_category_to_name(category) + "/*.json")
 
     # Rather sophisticated data science algorithm
-    return random.choice(products)
+    product = random.choice(products)
+    return loads(load_asset(product))
 
 
-def get_product_cards(user: IntermediateRepresentation) -> Tuple[str, str, str]:
-    leftover_category = (set((fd.BONDS, fd.STRUCTURED, fd.SHARES)) - set(user.assets))[0] 
+def get_product_cards(user: IntermediateRepresentation) -> Tuple[dict, dict, dict]:
+    leftover_category = list(
+        (set((fd.BONDS, fd.STRUCTURED, fd.SHARES)) - set(user.assets)))[0]
     cat_args = (user.assets[0], user.assets[1], leftover_category)
 
-    return tuple([get_product_from_category(x, user) for x in cat_args])
+    return [get_product_from_category(user, x) for x in cat_args]
 
 
 def get_investment_descriptions(user: IntermediateRepresentation) -> Tuple[str, str]:
@@ -79,15 +87,23 @@ def get_investment_descriptions(user: IntermediateRepresentation) -> Tuple[str, 
 
 
 def get_motivation(user: IntermediateRepresentation) -> str:
-    return get_age_dependent_path(user, "motivation")
+    return get_age_dependent_path(user, "motivation", ".txt")
 
 
 def get_slogan(user: IntermediateRepresentation) -> str:
-    return get_age_dependent_path(user, "slogans")
+    return get_age_dependent_path(user, "slogans", ".txt")
+
+
+def get_main_picture(user: IntermediateRepresentation) -> str:
+    return "../../" + get_age_dependent_path(user, "main_picture", ".png")
+
+
+def get_infographics(user: IntermediateRepresentation) -> str:
+    return "../../" + get_age_dependent_path(user, "infographics", ".png")
 
 
 def get_trading_type(user: IntermediateRepresentation) -> str:
     if user.account_type == fd.INVEST:
-        return "assets/trading_types/iia.txt"
+        return "../assets/trading_types/iia.txt"
     elif user.account_type == fd.BROKERAGE:
-        return "assets/trading_types/broker.txt"
+        return "../assets/trading_types/broker.txt"
