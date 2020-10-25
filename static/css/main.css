@@ -613,13 +613,13 @@ footer {
 }
 
 #text-icons-left {
-  background-image: url("../../assets/icons/obligations.png");
+  background-image: url("../img/icons/obligations.png");
   height: 58px;
   width: 260px;
 }
 
 #text-icons-right {
-  background-image: url("../../assets/icons/shares.png");
+  background-image: url("../img/icons/shares.png");
   height: 50px;
   width: 260px;
 }
