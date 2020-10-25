@@ -5,7 +5,7 @@ import json
 
 import src.user_classifier as uc
 import src.user_types as ut
-
+from src.feature_deduction import deds, BROKERAGE, INVEST
 
 app = Flask(__name__)
 
@@ -29,10 +29,26 @@ def index():
 
          
 
+@app.route('/view/rule', methods=['GET'])
+def view_add_rule():
+    return render_template('rules.html')
 
-@app.route('/add', methods=['POST'])
-def add_new_category():
-    data = json.loads(request.data)
+@app.route('/set/rule', methods=['POST'])
+def add_new_rule():
+    category = request.form['category']
+    rule = request.form['rule']
+    data = {'rule' : rule, 'category' : category}
+    
+    if category == 'YOUNG':
+        req_cat = ut.YOUNG
+    if 'ACCOUNT' in rule:
+        if 'BROKER' in rule:
+            req_value = BROKERAGE
+        else:
+            req_value = INVEST
+
+    deds['account_type'].add_rule(lambda x: x.age == req_cat, req_value)
+    return render_template('rules.html')
 
 @app.route('/get/data', methods=['GET'])
 def get_frontend_data():
