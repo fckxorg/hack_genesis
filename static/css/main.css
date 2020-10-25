@@ -50,6 +50,7 @@ body {
   margin-left: 50px;
   font-size: 64px;
   line-height: 64px;
+  max-width: 50%;
   color: #ffffff;
   /*font-family: 'Raleway', serif;*/
 }
@@ -116,6 +117,7 @@ body {
   text-align: center;
   font-weight: 550;
   color: #888888;
+  line-height: 25px;
 }
 
 .card .additional {
