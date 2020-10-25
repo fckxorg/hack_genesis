@@ -23,11 +23,15 @@ INVEST = 1
 
 deds = {
     'assets': Deductor(),
+    'account_type': Deductor()
 }
 
-deds['assets'].add_rule((lambda user : user.age == ut.ELDER or user.age == ut.MIDDLE_AGED), (BONDS, STRUCTURED))
-deds['assets'].add_rule((lambda user : user.age == ut.YOUNG and user.income == ut.INC_130), (BONDS, STRUCTURED))
-deds['assets'].add_rule((lambda user : user.age == ut.YOUNG and user.income == ut.INC_70_130), (BONDS, SHARES))
+deds['assets'].add_rule(
+    (lambda user: user.age == ut.ELDER or user.age == ut.MIDDLE_AGED), (BONDS, STRUCTURED))
+deds['assets'].add_rule(
+    (lambda user: user.age == ut.YOUNG and user.income == ut.INC_130), (BONDS, STRUCTURED))
+deds['assets'].add_rule(
+    (lambda user: user.age == ut.YOUNG and user.income == ut.INC_70_130), (BONDS, SHARES))
 deds['assets'].set_fallback((SHARES, BONDS))
 
 
@@ -73,13 +77,21 @@ def deduce_assets(user: UserData) -> Tuple[int, int]:
     #         return (SHARES, BONDS)
     return deds['assets'](user)
 
+
+deds['account_type'].add_rule((lambda user: user.age == ut.EASY_MONEY), BROKERAGE)
+deds['account_type'].add_rule((lambda user: user.age == ut.YOUNG and (user.income == ut.INC_70_130 or user.income == ut.INC_130)), INVEST)
+deds['account_type'].add_rule((lambda user: user.age == ut.YOUNG and (user.income == ut.INC_0_20 or user.income == ut.INC_20_70)), INVEST)
+deds['account_type'].set_fallback(INVEST)
+
 def deduce_account_type(user: UserData) -> int:
-    if user.age == ut.YOUNG:
-        if user.income == ut.INC_70_130 or user.income == ut.INC_130:
-            return INVEST
-        else:
-            return BROKERAGE
-    elif user.age == ut.EASY_MONEY:
-        return BROKERAGE
-    else:
-        return INVEST
+    # if user.age == ut.YOUNG:
+    #     if user.income == ut.INC_70_130 or user.income == ut.INC_130:
+    #         return INVEST
+    #     else:
+    #         return BROKERAGE
+    # elif user.age == ut.EASY_MONEY:
+    #     return BROKERAGE
+    # else:
+    #     return INVEST
+
+    return deds['account_type'](user)
