@@ -1,6 +1,7 @@
 from typing import Tuple
 from src.user_types import UserData
 import src.user_types as ut
+from src.deduction import Deductor
 
 # Risk level
 LOW_RISK = 0
@@ -19,6 +20,17 @@ LONG = 2
 # Account type
 BROKERAGE = 0
 INVEST = 1
+
+deds = {
+    'assets': Deductor(),
+}
+
+deds['assets'].add_rule((lambda user : user.age == ut.ELDER or user.age == ut.MIDDLE_AGED), (BONDS, STRUCTURED))
+deds['assets'].add_rule((lambda user : user.age == ut.YOUNG and user.income == ut.INC_130), (BONDS, STRUCTURED))
+deds['assets'].add_rule((lambda user : user.age == ut.YOUNG and user.income == ut.INC_70_130), (BONDS, SHARES))
+deds['assets'].set_fallback((SHARES, BONDS))
+
+
 
 
 def deduce_risk_level(user: UserData) -> int:
@@ -48,18 +60,18 @@ def deduce_investment_term(user: UserData) -> int:
 
 
 def deduce_assets(user: UserData) -> Tuple[int, int]:
-    if user.age == ut.ELDER or user.age == ut.MIDDLE_AGED:
-        return (BONDS, STRUCTURED)
-    elif user.age == ut.EASY_MONEY:
-        return (SHARES, BONDS)
-    else:  # user.age == ut.YOUNG
-        if user.income == ut.INC_130:
-            return (BONDS, STRUCTURED)
-        elif user.income == ut.INC_70_130:
-            return (BONDS, SHARES)
-        else:
-            return (SHARES, BONDS)
-
+    # if user.age == ut.ELDER or user.age == ut.MIDDLE_AGED:
+    #     return (BONDS, STRUCTURED)
+    # elif user.age == ut.EASY_MONEY:
+    #     return (SHARES, BONDS)
+    # else:  # user.age == ut.YOUNG
+    #     if user.income == ut.INC_130:
+    #         return (BONDS, STRUCTURED)
+    #     elif user.income == ut.INC_70_130:
+    #         return (BONDS, SHARES)
+    #     else:
+    #         return (SHARES, BONDS)
+    return deds['assets'](user)
 
 def deduce_account_type(user: UserData) -> int:
     if user.age == ut.YOUNG:
