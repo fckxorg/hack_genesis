@@ -1,10 +1,10 @@
 from typing import Tuple
 import typing
-import user_types as ut
-import feature_deduction as fd
+import src.user_types as ut
+import src.feature_deduction as fd
 import glob
 import random
-from user_types import IntermediateRepresentation
+from src.user_types import IntermediateRepresentation
 from json import loads
 
 
@@ -100,6 +100,14 @@ def get_main_picture(user: IntermediateRepresentation) -> str:
 
 def get_infographics(user: IntermediateRepresentation) -> str:
     return "../../" + get_age_dependent_path(user, "infographics", ".png")
+
+
+def get_icon_path(category: int):
+    return "../../assets/icons/" + product_category_to_name(category) + ".svg"
+
+
+def get_icons(user: IntermediateRepresentation) -> list:
+    return [get_icon_path(user.assets[0]), get_icon_path(user.assets[1])]
 
 
 def get_trading_type(user: IntermediateRepresentation) -> str:

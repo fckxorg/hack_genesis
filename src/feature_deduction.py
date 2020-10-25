@@ -1,6 +1,6 @@
 from typing import Tuple
-from user_types import UserData
-import user_types as ut
+from src.user_types import UserData
+import src.user_types as ut
 
 # Risk level
 LOW_RISK = 0

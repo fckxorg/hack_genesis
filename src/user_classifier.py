@@ -1,7 +1,7 @@
-import feature_deduction as fd
-from user_types import UserData, IntermediateRepresentation, PageSettings
+from . import feature_deduction as fd
+from src.user_types import UserData, IntermediateRepresentation, PageSettings
 from json import dumps
-import page_build as pb
+import src.page_build as pb
 
 
 def get_intermediate_representation(user: UserData) -> IntermediateRepresentation:
@@ -22,5 +22,6 @@ def get_page_json(user: IntermediateRepresentation) -> str:
 
     main_picture = pb.get_main_picture(user)
     infographics = pb.get_infographics(user)
+    icons = pb.get_icons(user)
 
-    return dumps(PageSettings(*args, user.account_type, main_picture, infographics).__dict__, ensure_ascii=False)
+    return dumps(PageSettings(*args, user.account_type, icons, main_picture, infographics).__dict__, ensure_ascii=False)
