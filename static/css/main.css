@@ -167,6 +167,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #ffffff;
 
   width: 80px;
   height: 80px;
@@ -619,6 +620,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-origin: border-box;
 }
 
 #text-icons-left {
