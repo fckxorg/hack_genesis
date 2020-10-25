@@ -2,6 +2,8 @@
     "name" : "Лукойл",
     "profit_prediction" : "15",
     "investments_sum" : "100000",
-    "term" : "12"
-    "type" : "Акции"
+    "term" : "12",
+    "type" : "Акции",
+    "logo" : "../../assets/cards/logos/shares/lukoil.png",
+    "plot" : "../../assets/cards/plots/shares/lukoil.png"
 }
