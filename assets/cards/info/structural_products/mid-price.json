@@ -4,6 +4,6 @@
     "investments_sum" : "130000",
     "term" : "12 месяцев",
     "type" : "Структурный продукт",
-    "logo" : "../img/logos/structural_products/icon.svg",
+    "logo" : "../img/icons/structural_products.png",
     "plot" : "../img/plots/structural_products/mid-price.png"
 }
