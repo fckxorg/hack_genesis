@@ -3,5 +3,7 @@
     "profit_prediction" : "9",
     "investments_sum" : "100000",
     "term" : "24",
-    "type" : "Облигации"
+    "type" : "Облигации",
+    "logo" : "../../assets/cards/logos/obligations/nornikel.png",
+    "plot" : "../../assets/cards/plots/obligations/nornikel.png"
 }
