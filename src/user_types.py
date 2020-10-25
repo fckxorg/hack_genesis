@@ -59,12 +59,13 @@ class IntermediateRepresentation:
 
 
 class PageSettings:
-    def __init__(self, motivation: str, investment_descriptions: Tuple[str, str], slogan: str, trading_type: str, cards: list, trading_type_indicator: int, main_picture: str, infographics: str):
+    def __init__(self, motivation: str, investment_descriptions: Tuple[str, str], slogan: str, trading_type: str, cards: list, trading_type_indicator: int, icons: List[str], main_picture: str, infographics: str):
         self.motivation = motivation
         self.investment_descriptions = investment_descriptions
         self.cards = cards
         self.slogan = slogan
         self.trading_type = trading_type
         self.trading_type_indicator = trading_type_indicator
+        self.icons = icons
         self.main_picture = main_picture
         self.infographics = infographics

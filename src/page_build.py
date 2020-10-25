@@ -102,6 +102,14 @@ def get_infographics(user: IntermediateRepresentation) -> str:
     return "../../" + get_age_dependent_path(user, "infographics", ".png")
 
 
+def get_icon_path(category: int):
+    return "../../assets/icons/" + product_category_to_name(category) + ".svg"
+
+
+def get_icons(user: IntermediateRepresentation) -> list:
+    return [get_icon_path(user.assets[0]), get_icon_path(user.assets[1])]
+
+
 def get_trading_type(user: IntermediateRepresentation) -> str:
     if user.account_type == fd.INVEST:
         return "../assets/trading_types/iia.txt"
