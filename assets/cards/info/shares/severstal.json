@@ -1,0 +1,9 @@
+{
+    "name" : "Северсталь",
+    "profit_prediction" : "13",
+    "investments_sum" : "50000",
+    "term" : "9",
+    "type" : "Акция",
+    "logo" : "../img/cards/logos/shares/lukoil.png",
+    "plot" : "../img/cards/plots/shares/lukoil.png"
+}
