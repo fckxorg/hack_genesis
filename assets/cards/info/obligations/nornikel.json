@@ -1,9 +1,9 @@
 {
     "name" : "Норникель",
-    "profit_prediction" : "9",
+    "profit_prediction" : "11",
     "investments_sum" : "100000",
-    "term" : "24",
+    "term" : "24 месяцев",
     "type" : "Облигации",
-    "logo" : "../img/cards/logos/obligations/nornikel.png",
-    "plot" : "../img/cards/plots/obligations/nornikel.png"
+    "logo" : "../img/logos/obligations/nornikel.png",
+    "plot" : "../img/plots/obligations/nornikel.png"
 }
