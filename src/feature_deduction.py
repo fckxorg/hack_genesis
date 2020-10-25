@@ -35,6 +35,13 @@ deds['assets'].add_rule(
 deds['assets'].set_fallback((SHARES, BONDS))
 
 
+deds['account_type'].add_rule(
+    (lambda user: user.age == ut.EASY_MONEY), BROKERAGE)
+deds['account_type'].add_rule((lambda user: user.age == ut.YOUNG and (
+    user.income == ut.INC_70_130 or user.income == ut.INC_130)), INVEST)
+deds['account_type'].add_rule((lambda user: user.age == ut.YOUNG and (
+    user.income == ut.INC_0_20 or user.income == ut.INC_20_70)), INVEST)
+deds['account_type'].set_fallback(INVEST)
 
 
 def deduce_risk_level(user: UserData) -> int:
@@ -77,11 +84,6 @@ def deduce_assets(user: UserData) -> Tuple[int, int]:
     #         return (SHARES, BONDS)
     return deds['assets'](user)
 
-
-deds['account_type'].add_rule((lambda user: user.age == ut.EASY_MONEY), BROKERAGE)
-deds['account_type'].add_rule((lambda user: user.age == ut.YOUNG and (user.income == ut.INC_70_130 or user.income == ut.INC_130)), INVEST)
-deds['account_type'].add_rule((lambda user: user.age == ut.YOUNG and (user.income == ut.INC_0_20 or user.income == ut.INC_20_70)), INVEST)
-deds['account_type'].set_fallback(INVEST)
 
 def deduce_account_type(user: UserData) -> int:
     # if user.age == ut.YOUNG:

@@ -1,9 +1,9 @@
 {
     "name" : "Базовый портфель",
-    "profit_prediction" : "9",
+    "profit_prediction" : "12",
     "investments_sum" : "50000",
-    "term" : "12",
+    "term" : "12 месяцев",
     "type" : "Структурный продукт",
-    "logo" : "../img/cards/logos/structural_products/icon.svg",
-    "plot" : "../img/cards/plots/structural_products/cheap.png"
+    "logo" : "../img/logos/structural_products/icon.svg",
+    "plot" : "../img/plots/structural_products/cheap.png"
 }
