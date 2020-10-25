@@ -8,6 +8,9 @@ fetch('/get/data').then(
         response.json().then(
             function (data) {
                 console.log(data);
+
+                document.getElementById("slogan").write(data.slogan);
+                document.getElementById("motivation").write(data.motivation);
             }
         );
     }
