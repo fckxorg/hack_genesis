@@ -38,13 +38,36 @@ fetch('/get/data').then(
 
                 let logoBlocks = document.getElementsByClassName("level");
                 for (let i = 0; i < logoBlocks.length; ++i) {
-                    amountBlocks[i].style.backgroundImage = "url(\"static/css/" + data.cards[i].logo + "\")";
+                    // console.log(data.cards[i].logo);
+                    logoBlocks[i].style.backgroundImage = "url(\"static/css/" + data.cards[i].logo + "\")";
                 }
 
-                // let graphicBlocks = document.getElementsByClassName("graphic");
-                // for (let i = 0; i < graphicBlocks.length; ++i) {
-                //     graphicBlocks[i].style.backgroundImage = "url(\"static/css/" + data.cards[i].logo + "\")";
-                // }
+                let graphicBlocks = document.getElementsByClassName("graphic");
+                for (let i = 0; i < graphicBlocks.length; ++i) {
+                    graphicBlocks[i].style.backgroundImage = "url(\"static/css/" + data.cards[i].plot + "\")";
+                }
+
+                document.getElementById("trading_type").innerText = data.trading_type;
+                if (data.trading_type_indicator === 0) {
+                    document.getElementById("trading-type-head").innerHTML = "Брокерский<br>счет";
+                } else if (data.trading_type_indicator === 1) {
+                    document.getElementById("trading-type-head").innerHTML = "Индивидуальный<br>" +
+                        "инвестиционный<br>" +
+                        "счет";
+                }
+
+                let aboutTextHead = document.getElementsByClassName("about-block-text-head");
+                let aboutText = document.getElementsByClassName("about-block-text-text");
+                for (let i = 0; i < aboutTextHead.length; ++i) {
+                    aboutTextHead[i].innerText = "Что такое " +  data.cards[i].type + "?";
+                    aboutText[i].innerText = data.investment_descriptions[i];
+                }
+
+                document.getElementById("banner").style.backgroundImage =
+                    "url(\"static/css/" + data.main_picture + "\")";
+
+                document.getElementById("infographic").style.backgroundImage =
+                    "url(\"static/css/" + data.infographics + "\")";
             }
         );
     }
