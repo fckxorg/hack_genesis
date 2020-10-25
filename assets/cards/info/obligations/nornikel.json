@@ -4,6 +4,6 @@
     "investments_sum" : "100000",
     "term" : "24",
     "type" : "Облигации",
-    "logo" : "../../assets/cards/logos/obligations/nornikel.png",
-    "plot" : "../../assets/cards/plots/obligations/nornikel.png"
+    "logo" : "../img/cards/logos/obligations/nornikel.png",
+    "plot" : "../img/cards/plots/obligations/nornikel.png"
 }

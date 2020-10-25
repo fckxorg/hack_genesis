@@ -32,7 +32,7 @@ def load_asset(path):
 
 
 def get_age_dependent_path(user: IntermediateRepresentation, folder: str, extension: str) -> str:
-    path = "../assets/" + folder
+    path = folder
     if user.age == ut.YOUNG:
         path += "/young"
     elif user.age == ut.EASY_MONEY:
@@ -46,7 +46,7 @@ def get_age_dependent_path(user: IntermediateRepresentation, folder: str, extens
 
 
 def get_investment_description_path(asset_type: int, education: int):
-    path = "../assets/investments_descriptions/"
+    path = "assets/investments_descriptions/"
 
     if education == ut.HIGH:
         path += "good_education_"
@@ -66,7 +66,7 @@ def product_category_to_name(product_class: int) -> str:
 
 
 def get_product_from_category(user: IntermediateRepresentation, category: int) -> dict:
-    products = glob.glob("../assets/cards/info/" +
+    products = glob.glob("assets/cards/info/" +
                          product_category_to_name(category) + "/*.json")
 
     # Rather sophisticated data science algorithm
@@ -87,23 +87,23 @@ def get_investment_descriptions(user: IntermediateRepresentation) -> Tuple[str, 
 
 
 def get_motivation(user: IntermediateRepresentation) -> str:
-    return get_age_dependent_path(user, "motivation", ".txt")
+    return 'assets/' + get_age_dependent_path(user, "motivation", ".txt")
 
 
 def get_slogan(user: IntermediateRepresentation) -> str:
-    return get_age_dependent_path(user, "slogans", ".txt")
+    return 'assets/' + get_age_dependent_path(user, "slogans", ".txt")
 
 
 def get_main_picture(user: IntermediateRepresentation) -> str:
-    return "../../" + get_age_dependent_path(user, "main_picture", ".png")
+    return '../img/' + get_age_dependent_path(user, "main_picture", ".png")
 
 
 def get_infographics(user: IntermediateRepresentation) -> str:
-    return "../../" + get_age_dependent_path(user, "infographics", ".png")
+    return '../img/' + get_age_dependent_path(user, "infographics", ".png")
 
 
 def get_icon_path(category: int):
-    return "../../assets/icons/" + product_category_to_name(category) + ".svg"
+    return "../img/icons/" + product_category_to_name(category) + ".svg"
 
 
 def get_icons(user: IntermediateRepresentation) -> list:
@@ -112,6 +112,6 @@ def get_icons(user: IntermediateRepresentation) -> list:
 
 def get_trading_type(user: IntermediateRepresentation) -> str:
     if user.account_type == fd.INVEST:
-        return "../assets/trading_types/iia.txt"
+        return "assets/trading_types/iia.txt"
     elif user.account_type == fd.BROKERAGE:
-        return "../assets/trading_types/broker.txt"
+        return "assets/trading_types/broker.txt"

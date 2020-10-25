@@ -4,6 +4,6 @@
     "investments_sum" : "45000",
     "term" : "18",
     "type" : "Облигации",
-    "logo" : "../../assets/cards/logos/obligations/mts.png",
-    "plot" : "../../assets/cards/plots/obligations/mts.png"
+    "logo" : "../img/cards/logos/obligations/mts.png",
+    "plot" : "../img/cards/plots/obligations/mts.png"
 }
